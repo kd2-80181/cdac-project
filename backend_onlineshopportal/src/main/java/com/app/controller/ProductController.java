@@ -58,5 +58,16 @@ public class ProductController {
 			
 			return ResponseEntity.status(HttpStatus.OK).body(msg);
 		}
-	
+		
+		@GetMapping("/delete/{product_id}")
+		public ResponseEntity<?> deleteProducts(@PathVariable Long product_id) {
+		String msg="product delete failed !!";
+		if(productService.deleteByProductId(product_id)) 
+		{
+			msg="product deleted succefully !!";
+			return ResponseEntity.status(HttpStatus.OK).body(msg);
+		}
+		
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
+	}
 }
