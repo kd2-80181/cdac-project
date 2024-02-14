@@ -39,7 +39,24 @@ public class ProductController {
 			
 			return null;
 		}
+		
+		// customer should be able to purchase products
+		@GetMapping("/purchase")
+		public String purchaseProducts() {
+			return "customer should be able to purchase products";
+		}
 
-
-
+		// admin should be able to add the products
+		@PostMapping("/add")
+		public ResponseEntity<?> addProducts(@RequestBody @Valid AddProductDto dto) {
+			String msg="added failed !!";
+		      Product product=productService.addProduct(dto);
+		      if(product!=null) 
+		      {
+		    	  msg="added succefully";
+		      }
+			
+			return ResponseEntity.status(HttpStatus.OK).body(msg);
+		}
+	
 }

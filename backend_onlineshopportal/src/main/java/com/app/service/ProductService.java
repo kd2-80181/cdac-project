@@ -11,5 +11,7 @@ public interface ProductService {
 
 	List<Product> FindAllProduct();
 
-	
+	Product addProduct(@Valid AddProductDto dto);
+
+	boolean deleteByProductId(Long id);
 }

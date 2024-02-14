@@ -36,4 +36,25 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.findAll();
 	}
 	
+	@Override
+	public Product addProduct(AddProductDto dto) {
+	     Users u= userDao.findById(dto.getSeller_id()).orElseThrow(()->new ResourceNotFoundException("User is not present !!"));
+	     Product product=mapper.map(dto,Product.class);
+	     product.setSeller(u);
+	     product.setCreatedAt(LocalDateTime.now());
+		return productDao.save(product);
+	}
+
+	@Override
+	public boolean deleteByProductId(Long id) {
+		if( productDao.existsById(id)) 
+		{
+		Product product=productDao.findById(id).orElseThrow();
+		product.setQuantity(0);
+			return true;
+		}
+		return false;
+	}
+
+	
 }
