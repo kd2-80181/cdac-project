@@ -12,5 +12,6 @@ public interface UserService {
 	//sign up
 	Signup userRegistration(Signup reqDTO);
 
+	Users findByEmail(String email );
 
 }

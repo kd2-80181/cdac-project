@@ -28,5 +28,15 @@ public class UserServiceImpl implements UserService {
 		user.setCreatedAt(LocalDateTime.now());		
 		return mapper.map(userDao.save(user), Signup.class);
 	}
+	
+	@Override
+	public Users findByEmail(String email) {
+				 Users u= userDao.findByEmail(email)
+				 .orElseThrow(()->new ResourceNotFoundException("User is not present !!"));
+		 System.out.println(u);
+		 
+		return u;
+	}
+
 
 }
