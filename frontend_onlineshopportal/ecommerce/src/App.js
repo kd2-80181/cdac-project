@@ -9,6 +9,7 @@ import UserEditProfile from "./customer/components/UserProfiePage/UserEditPage";
 import SellerHomePage from "./customer/components/Seller/SellerComponents/SellerHomePage";
 import SellerAddProduct from "./customer/components/Seller/SellerComponents/SellerAddProduct";
 import SellerEditProduct from "./customer/components/Seller/SellerComponents/SellerEditProduct";
+import SignUpCust from "./customer/components/CreateAccountPage/CreateCustAccountPage";
 import { Link, Switch, Route } from "react-router-dom";
 //import CreateUser from './customer/components/CreateAccountPage/CreateAccountPage';
 import { Router, Routes } from "react-router-dom";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/seller/home" element={<SellerHomePage />}></Route>
         <Route path="/seller/addproduct" element={<SellerAddProduct/>}></Route>
         <Route path="/seller/home/editproduct/:id" element={<SellerEditProduct/>}></Route>
+        <Route path="/users/cust/signup" element={<SignUpCust />}></Route>
         {/* //<Route path='/Navigation' element={<Navigation/>}/> */}
       </Routes>
       <Footer />
